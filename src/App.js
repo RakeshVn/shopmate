@@ -1,25 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+/**
+ * Components
+ * @Home
+ * @Cart
+ * @Checkout
+ * @Product
+ */
+import Home from './views/home.component'
+import Cart from './views/cart.component'
+import Checkout from './views/checkout.component';
+import Product from './views/product.component';
+import Categories from './views/categories.component';
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        {/* <div id="preloder">
+          <div className="loader"></div>
+        </div> */}
+        <Router>
+          <Route path="/" exact component={Home} />
+          <Route path="/cart" exact component={Cart} />
+          <Route path="/checkout" exact component={Checkout} />
+          <Route path="/product" exact component={Product} />
+          <Route path="/categories" exact component={Categories} />
+        </Router>
       </div>
     );
   }
