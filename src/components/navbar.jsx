@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 /**
  * Importing @Styles and @Images
@@ -9,7 +9,6 @@ import "../assets/css/font-awesome.min.css"
 import "../assets/css/owl.carousel.css"
 import "../assets/css/style.css"
 import "../assets/css/animate.css"
-import logo from "../assets/img/logo.png"
 import bag from "../assets/img/icons/bag.png"
 import search from "../assets/img/icons/search.png"
 
@@ -28,15 +27,15 @@ export default class Navbar extends Component {
             <Link to="cart" className="card-bag">
               <img src={bag} alt="" /><span>2</span>
             </Link>
-            <a href="#" className="search"><img src={search} alt="" /></a>
+            <Link to="#" className="search"><img src={search} alt="" /></Link>
           </div>
           <ul className="main-menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#">Woman</a></li>
-            <li><a href="#">Man</a></li>
-            <li><a href="#">LookBook</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><Link to="index.html">Home</Link></li>
+            <li><Link to="#">Woman</Link></li>
+            <li><Link to="#">Man</Link></li>
+            <li><Link to="#">LookBook</Link></li>
+            <li><Link to="#">Blog</Link></li>
+            <li><Link to="contact.html">Contact</Link></li>
           </ul>
         </div>
       </div>

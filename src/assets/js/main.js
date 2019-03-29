@@ -52,7 +52,7 @@ $(window).on('load', function() {
 	$('.hero-slider').owlCarousel({
 		loop: true,
 		nav: true,
-		navText:['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
+		navText:['<i className="fa fa-angle-left"></i>','<i className="fa fa-angle-right"></i>'],
 		dots: true,
 		mouseDrag: false,
 		animateOut: 'fadeOut',

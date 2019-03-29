@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
+import { Link } from 'react-router-dom';
 
 export default class Cart extends Component {
     render() {
@@ -25,7 +26,7 @@ export default class Cart extends Component {
                                             <img src="img/product/cart.jpg" alt="" />
                                             <div class="pc-title">
                                                 <h4>Black Shoulder Bag</h4>
-                                                <a href="#">Edit Product</a>
+                                                <Link to="#">Edit Product</Link>
                                             </div>
                                         </td>
                                         <td class="price-col">$59.90</td>
@@ -88,7 +89,7 @@ export default class Cart extends Component {
                                             <li>Shipping<span>Free</span></li>
                                             <li class="total">Total<span>$59.90</span></li>
                                         </ul>
-                                        <a class="site-btn btn-full" href="checkout.html">Proceed to checkout</a>
+                                        <Link to="site-btn btn-full" href="checkout.html">Proceed to checkout</Link>
                                     </div>
                                 </div>
                             </div>

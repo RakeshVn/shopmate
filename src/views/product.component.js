@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
-import product1 from "../assets/img/products/1.jpg"
 import product2 from "../assets/img/products/2.jpg"
 import product3 from "../assets/img/products/3.jpg"
 import product4 from "../assets/img/products/4.jpg"
@@ -84,7 +85,7 @@ export default class Product extends Component {
                                             <label for="xxl-size">XXL</label>
                                         </div>
                                     </div>
-                                    <a href="#" class="site-btn btn-line">ADD TO CART</a>
+                                    <Link to="#" class="site-btn btn-line">ADD TO CART</Link>
                                 </div>
                             </div>
                         </div>
@@ -93,13 +94,13 @@ export default class Product extends Component {
                                 <div class="col-lg-10 offset-lg-1">
                                     <ul class="nav" role="tablist">
                                         <li class="nav-item">
-                                            <a class="nav-link active" id="1-tab" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true">Description</a>
+                                            <Link class="nav-link active" id="1-tab" data-toggle="tab" to="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true">Description</Link>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" id="2-tab" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false">Additional information</a>
+                                            <Link class="nav-link" id="2-tab" data-toggle="tab" to="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false">Additional information</Link>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" id="3-tab" data-toggle="tab" href="#tab-3" role="tab" aria-controls="tab-3" aria-selected="false">Reviews (0)</a>
+                                            <Link class="nav-link" id="3-tab" data-toggle="tab" to="#tab-3" role="tab" aria-controls="tab-3" aria-selected="false">Reviews (0)</Link>
                                         </li>
                                     </ul>
                                     <div class="tab-content">
@@ -138,7 +139,7 @@ export default class Product extends Component {
                                     <div class="product-info">
                                         <h6>Long red Shirt</h6>
                                         <p>$39.90</p>
-                                        <a href="#" class="site-btn btn-line">ADD TO CART</a>
+                                        <Link to="#" class="site-btn btn-line">ADD TO CART</Link>
                                     </div>
                                 </div>
                             </div>
@@ -161,7 +162,7 @@ export default class Product extends Component {
                                     <div class="product-info">
                                         <h6>Hype grey shirt</h6>
                                         <p>$19.50</p>
-                                        <a href="#" class="site-btn btn-line">ADD TO CART</a>
+                                        <Link to="#" class="site-btn btn-line">ADD TO CART</Link>
                                     </div>
                                 </div>
                             </div>
@@ -183,7 +184,7 @@ export default class Product extends Component {
                                     <div class="product-info">
                                         <h6>long sleeve jacket</h6>
                                         <p>$59.90</p>
-                                        <a href="#" class="site-btn btn-line">ADD TO CART</a>
+                                        <Link to="#" class="site-btn btn-line">ADD TO CART</Link>
                                     </div>
                                 </div>
                             </div>
@@ -206,7 +207,7 @@ export default class Product extends Component {
                                     <div class="product-info">
                                         <h6>Denim men shirt</h6>
                                         <p>$32.20 <span>RRP 64.40</span></p>
-                                        <a href="#" class="site-btn btn-line">ADD TO CART</a>
+                                        <Link to="#" class="site-btn btn-line">ADD TO CART</Link>
                                     </div>
                                 </div>
                             </div>

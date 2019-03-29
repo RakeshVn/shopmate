@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 import "../assets/css/bootstrap.min.css"
 import "../assets/css/font-awesome.min.css"
 import "../assets/css/owl.carousel.css"
 import "../assets/css/style.css"
 import "../assets/css/animate.css"
-import product1 from "../assets/img/products/1.jpg"
-import product2 from "../assets/img/products/2.jpg"
-import product3 from "../assets/img/products/3.jpg"
-import product4 from "../assets/img/products/4.jpg"
-import eye from "../assets/img/icons/eye.png"
-import heart from "../assets/img/icons/heart.png"
 import Navbar from '../components/navbar';
 
 export default class Categories extends Component {
@@ -23,12 +19,12 @@ export default class Categories extends Component {
                             <p>Showing 12 results</p>
                             <div class="cf-right">
                                 <div class="cf-layouts">
-                                    <a href="#">
+                                    <Link to="#">
                                         <img src="img/icons/layout-1.png" alt="" />
-                                    </a>
-                                    <a class="active" href="#">
+                                    </Link>
+                                    <Link class="active" to="#">
                                         <img src="img/icons/layout-2.png" alt="" />
-                                    </a>
+                                    </Link>
                                 </div>
                                 <form action="#">
                                     <select>
@@ -62,7 +58,7 @@ export default class Categories extends Component {
                                     <div class="product-info">
                                         <h6>Long red Shirt</h6>
                                         <p>$39.90</p>
-                                        <a href="#" class="site-btn btn-line">ADD TO CART</a>
+                                        <Link to="#" class="site-btn btn-line">ADD TO CART</Link>
                                     </div>
                                 </div>
                             </div>
@@ -85,7 +81,7 @@ export default class Categories extends Component {
                                     <div class="product-info">
                                         <h6>Hype grey shirt</h6>
                                         <p>$19.50</p>
-                                        <a href="#" class="site-btn btn-line">ADD TO CART</a>
+                                        <Link to="#" class="site-btn btn-line">ADD TO CART</Link>
                                     </div>
                                 </div>
                             </div>
@@ -107,7 +103,7 @@ export default class Categories extends Component {
                                     <div class="product-info">
                                         <h6>long sleeve jacket</h6>
                                         <p>$59.90</p>
-                                        <a href="#" class="site-btn btn-line">ADD TO CART</a>
+                                        <Link to="#" class="site-btn btn-line">ADD TO CART</Link>
                                     </div>
                                 </div>
                             </div>
@@ -130,7 +126,7 @@ export default class Categories extends Component {
                                     <div class="product-info">
                                         <h6>Denim men shirt</h6>
                                         <p>$32.20 <span>RRP 64.40</span></p>
-                                        <a href="#" class="site-btn btn-line">ADD TO CART</a>
+                                        <Link to="#" class="site-btn btn-line">ADD TO CART</Link>
                                     </div>
                                 </div>
                             </div>
@@ -152,7 +148,7 @@ export default class Categories extends Component {
                                     <div class="product-info">
                                         <h6>Long red Shirt</h6>
                                         <p>$39.90</p>
-                                        <a href="#" class="site-btn btn-line">ADD TO CART</a>
+                                        <Link to="#" class="site-btn btn-line">ADD TO CART</Link>
                                     </div>
                                 </div>
                             </div>
@@ -175,7 +171,7 @@ export default class Categories extends Component {
                                     <div class="product-info">
                                         <h6>Hype grey shirt</h6>
                                         <p>$19.50</p>
-                                        <a href="#" class="site-btn btn-line">ADD TO CART</a>
+                                        <Link to="#" class="site-btn btn-line">ADD TO CART</Link>
                                     </div>
                                 </div>
                             </div>
@@ -197,7 +193,7 @@ export default class Categories extends Component {
                                     <div class="product-info">
                                         <h6>long sleeve jacket</h6>
                                         <p>$59.90</p>
-                                        <a href="#" class="site-btn btn-line">ADD TO CART</a>
+                                        <Link to="#" class="site-btn btn-line">ADD TO CART</Link>
                                     </div>
                                 </div>
                             </div>
@@ -219,7 +215,7 @@ export default class Categories extends Component {
                                     <div class="product-info">
                                         <h6>Denim men shirt</h6>
                                         <p>$32.20 <span>RRP 64.40</span></p>
-                                        <a href="#" class="site-btn btn-line">ADD TO CART</a>
+                                        <Link to="#" class="site-btn btn-line">ADD TO CART</Link>
                                     </div>
                                 </div>
                             </div>
@@ -241,7 +237,7 @@ export default class Categories extends Component {
                                     <div class="product-info">
                                         <h6>Long red Shirt</h6>
                                         <p>$39.90</p>
-                                        <a href="#" class="site-btn btn-line">ADD TO CART</a>
+                                        <Link to="#" class="site-btn btn-line">ADD TO CART</Link>
                                     </div>
                                 </div>
                             </div>
@@ -264,7 +260,7 @@ export default class Categories extends Component {
                                     <div class="product-info">
                                         <h6>Hype grey shirt</h6>
                                         <p>$19.50</p>
-                                        <a href="#" class="site-btn btn-line">ADD TO CART</a>
+                                        <Link to="#" class="site-btn btn-line">ADD TO CART</Link>
                                     </div>
                                 </div>
                             </div>
@@ -286,7 +282,7 @@ export default class Categories extends Component {
                                     <div class="product-info">
                                         <h6>long sleeve jacket</h6>
                                         <p>$59.90</p>
-                                        <a href="#" class="site-btn btn-line">ADD TO CART</a>
+                                        <Link to="#" class="site-btn btn-line">ADD TO CART</Link>
                                     </div>
                                 </div>
                             </div>
@@ -308,18 +304,18 @@ export default class Categories extends Component {
                                     <div class="product-info">
                                         <h6>Denim men shirt</h6>
                                         <p>$32.20 <span>RRP 64.40</span></p>
-                                        <a href="#" class="site-btn btn-line">ADD TO CART</a>
+                                        <Link to="#" class="site-btn btn-line">ADD TO CART</Link>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="site-pagination">
                             <span class="active">01.</span>
-                            <a href="">02.</a>
-                            <a href="">03.</a>
-                            <a href="">04.</a>
-                            <a href="">05.</a>
-                            <a href="">06</a>
+                            <Link to="">02.</Link>
+                            <Link to="">03.</Link>
+                            <Link to="">04.</Link>
+                            <Link to="">05.</Link>
+                            <Link to="">06</Link>
                         </div>
                     </div>
                 </div>

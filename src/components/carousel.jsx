@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import "../assets/css/bootstrap.min.css"
 import "../assets/css/font-awesome.min.css"
 import "../assets/css/owl.carousel.css"
@@ -19,7 +20,7 @@ export default class Slider extends Component {
                             <div className="hs-content">
                                 <div className="price">from $19.90</div>
                                 <h2><span>2018</span> summer collection</h2>
-                                <a href="" className="site-btn">Shop NOW!</a>
+                                <Link to="" className="site-btn">Shop NOW!</Link>
                             </div>
                         </div>
                     </div>
@@ -30,7 +31,7 @@ export default class Slider extends Component {
                             <div className="hs-content">
                                 <div className="price">from $19.90</div>
                                 <h2><span>2018</span> summer collection</h2>
-                                <a href="" className="site-btn">Shop NOW!</a>
+                                <Link to="" className="site-btn">Shop NOW!</Link>
                             </div>
                         </div>
                     </div>
