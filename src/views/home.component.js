@@ -26,12 +26,6 @@ export default class Home extends Component {
     })
   }
 
-  products() {
-    return this.state.productsData.map(function (item) {
-      return <Products product={item}></Products>
-    })
-  }
-
   render() {
     return (
       <div>

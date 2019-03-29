@@ -13,6 +13,8 @@ import Cart from './views/cart.component'
 import Checkout from './views/checkout.component';
 import Product from './views/product.component';
 import Categories from './views/categories.component';
+import Signup from './views/signup.component';
+import Login from './views/login.component';
 
 
 class App extends Component {
@@ -28,6 +30,8 @@ class App extends Component {
           <Route path="/checkout" exact component={Checkout} />
           <Route path="/product" exact component={Product} />
           <Route path="/categories" exact component={Categories} />
+          <Route path="/signup" exact component={Signup} />
+          <Route path="/login" exact component={Login} />
         </Router>
       </div>
     );
