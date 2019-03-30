@@ -30,12 +30,12 @@ export default class Navbar extends Component {
             <Link to="#" className="search"><img src={search} alt="" /></Link>
           </div>
           <ul className="main-menu">
-            <li><Link to="index.html">Home</Link></li>
-            <li><Link to="#">Woman</Link></li>
-            <li><Link to="#">Man</Link></li>
-            <li><Link to="#">LookBook</Link></li>
-            <li><Link to="#">Blog</Link></li>
-            <li><Link to="contact.html">Contact</Link></li>
+            <li><Link to="">Home</Link></li>
+            <li><Link to="">Woman</Link></li>
+            <li><Link to="">Man</Link></li>
+            <li><Link to="">LookBook</Link></li>
+            <li><Link to="">Blog</Link></li>
+            <li><Link to="">Contact</Link></li>
           </ul>
         </div>
       </div>

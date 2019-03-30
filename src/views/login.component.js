@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import Navbar from "../components/navbar";
 import Footer from '../components/footer';
 import ValidateInput from "../shared/login.validations";
+import {
+    post
+} from "../shared/restful.service";
+
 export default class Login extends Component {
 
     constructor(props) {
@@ -22,8 +26,9 @@ export default class Login extends Component {
     }
 
     isValid() {
+
         const { errors, isValid } = ValidateInput(this.state)
-        console.log(errors, isValid)
+
         if (!isValid) {
             this.setState({
                 errors: errors
@@ -34,39 +39,41 @@ export default class Login extends Component {
     }
 
     onEmailChange(event) {
+
         this.setState({
             email: event.target.value
         })
+
     }
 
     onPasswordChange(event) {
+
         this.setState({
             password: event.target.value
         })
+
     }
 
     onLogin(event) {
-        event.preventDefault();
-        console.log(this.state.email, this.state.password)
-        console.log(this.isValid())
 
-        // fetch('https://backendapi.turing.com/customers/login', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Accept': 'application/json',
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify({
-        //         email: this.state.email,
-        //         password: this.state.password
-        //     })
-        // }).then(response => {
-        //     return response.json()
-        // }).then((result) => {
-        //     console.log(result)
-        // }).catch((error) => {
-        //     console.error(error)
-        // })
+        event.preventDefault();
+
+        let postData = {
+            email: this.state.email,
+            password: this.state.password
+        }
+
+        if (this.isValid()) {
+            post('https://backendapi.turing.com/customers/login', postData).then(response => {
+                return response.json()
+            }).then((result) => {
+                if (result.accessToken) {
+                    localStorage.setItem('accessToken', result.accessToken)
+                }
+            }).catch((error) => {
+                console.error(error)
+            })
+        }
     }
 
     render() {
@@ -91,7 +98,7 @@ export default class Login extends Component {
                             </div>
                             <div className="row justify-content-md-center">
                                 <div className="text-center">
-                                    <button type="submit" className="site-btn">Signup</button>
+                                    <button type="submit" className="site-btn">Login</button>
                                 </div>
                             </div>
                         </form>

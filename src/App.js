@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 /**
  * Components
@@ -15,6 +15,8 @@ import Product from './views/product.component';
 import Categories from './views/categories.component';
 import Signup from './views/signup.component';
 import Login from './views/login.component';
+import { ProtectedRoute } from './shared/protected.routes';
+import NotFound from './views/404.component';
 
 
 class App extends Component {
@@ -25,13 +27,16 @@ class App extends Component {
           <div className="loader"></div>
         </div> */}
         <Router>
-          <Route path="/" exact component={Home} />
-          <Route path="/cart" exact component={Cart} />
-          <Route path="/checkout" exact component={Checkout} />
-          <Route path="/product" exact component={Product} />
-          <Route path="/categories" exact component={Categories} />
-          <Route path="/signup" exact component={Signup} />
-          <Route path="/login" exact component={Login} />
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <ProtectedRoute path="/cart" exact component={Cart} />
+            <Route path="/checkout" exact component={Checkout} />
+            <Route path="/product" exact component={Product} />
+            <Route path="/categories" exact component={Categories} />
+            <Route path="/signup" exact component={Signup} />
+            <Route path="/login" exact component={Login} />
+            <Route path="*" component={NotFound} />
+          </Switch>
         </Router>
       </div>
     );

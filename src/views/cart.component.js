@@ -8,86 +8,86 @@ export default class Cart extends Component {
         return (
             <div>
                 <Navbar></Navbar>
-                <div class="page-area cart-page spad">
-                    <div class="container">
-                        <div class="cart-table">
+                <div className="page-area cart-page spad">
+                    <div className="container">
+                        <div className="cart-table">
                             <table>
                                 <thead>
                                     <tr>
-                                        <th class="product-th">Product</th>
+                                        <th className="product-th">Product</th>
                                         <th>Price</th>
                                         <th>Quantity</th>
-                                        <th class="total-th">Total</th>
+                                        <th className="total-th">Total</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td class="product-col">
+                                        <td className="product-col">
                                             <img src="img/product/cart.jpg" alt="" />
-                                            <div class="pc-title">
+                                            <div className="pc-title">
                                                 <h4>Black Shoulder Bag</h4>
                                                 <Link to="#">Edit Product</Link>
                                             </div>
                                         </td>
-                                        <td class="price-col">$59.90</td>
-                                        <td class="quy-col">
-                                            <div class="quy-input">
+                                        <td className="price-col">$59.90</td>
+                                        <td className="quy-col">
+                                            <div className="quy-input">
                                                 <span>Qty</span>
-                                                <input type="number" value="01" />
+                                                <input type="number" />
                                             </div>
                                         </td>
-                                        <td class="total-col">$59.90</td>
+                                        <td className="total-col">$59.90</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-                        <div class="row cart-buttons">
-                            <div class="col-lg-5 col-md-5">
-                                <div class="site-btn btn-continue">Continue shooping</div>
+                        <div className="row cart-buttons">
+                            <div className="col-lg-5 col-md-5">
+                                <div className="site-btn btn-continue">Continue shooping</div>
                             </div>
-                            <div class="col-lg-7 col-md-7 text-lg-right text-left">
-                                <div class="site-btn btn-clear">Clear cart</div>
-                                <div class="site-btn btn-line btn-update">Update Cart</div>
+                            <div className="col-lg-7 col-md-7 text-lg-right text-left">
+                                <div className="site-btn btn-clear">Clear cart</div>
+                                <div className="site-btn btn-line btn-update">Update Cart</div>
                             </div>
                         </div>
                     </div>
-                    <div class="card-warp">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <div class="shipping-info">
+                    <div className="card-warp">
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-lg-4">
+                                    <div className="shipping-info">
                                         <h4>Shipping method</h4>
                                         <p>Select the one you want</p>
-                                        <div class="shipping-chooes">
-                                            <div class="sc-item">
+                                        <div className="shipping-chooes">
+                                            <div className="sc-item">
                                                 <input type="radio" name="sc" id="one" />
-                                                <label for="one">Next day delivery<span>$4.99</span></label>
+                                                <label>Next day delivery<span>$4.99</span></label>
                                             </div>
-                                            <div class="sc-item">
+                                            <div className="sc-item">
                                                 <input type="radio" name="sc" id="two" />
-                                                <label for="two">Standard delivery<span>$1.99</span></label>
+                                                <label>Standard delivery<span>$1.99</span></label>
                                             </div>
-                                            <div class="sc-item">
+                                            <div className="sc-item">
                                                 <input type="radio" name="sc" id="three" />
-                                                <label for="three">Personal Pickup<span>Free</span></label>
+                                                <label>Personal Pickup<span>Free</span></label>
                                             </div>
                                         </div>
                                         <h4>Cupon code</h4>
                                         <p>Enter your cupone code</p>
-                                        <div class="cupon-input">
+                                        <div className="cupon-input">
                                             <input type="text" />
-                                            <button class="site-btn">Apply</button>
+                                            <button className="site-btn">Apply</button>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="offset-lg-2 col-lg-6">
-                                    <div class="cart-total-details">
+                                <div className="offset-lg-2 col-lg-6">
+                                    <div className="cart-total-details">
                                         <h4>Cart total</h4>
                                         <p>Final Info</p>
-                                        <ul class="cart-total-card">
+                                        <ul className="cart-total-card">
                                             <li>Subtotal<span>$59.90</span></li>
                                             <li>Shipping<span>Free</span></li>
-                                            <li class="total">Total<span>$59.90</span></li>
+                                            <li className="total">Total<span>$59.90</span></li>
                                         </ul>
                                         <Link to="site-btn btn-full" href="checkout.html">Proceed to checkout</Link>
                                     </div>
