@@ -24,7 +24,7 @@ export default class Navbar extends Component {
             <i className="fa fa-bars"></i>
           </div>
           <div className="header-right">
-            <Link to="cart" className="card-bag">
+            <Link to="/cart" className="card-bag">
               <img src={bag} alt="" /><span>2</span>
             </Link>
             <Link to="#" className="search"><img src={search} alt="" /></Link>

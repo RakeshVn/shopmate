@@ -14,7 +14,7 @@ export default class Categories extends Component {
             <div className="col-md-4">
                 <div className="featured-item">
                     <img src={cards1} alt="" />
-                    <Link to="/department" params={{ id: this.props.department.department_id }} className="site-btn">{this.props.department.name}</Link>
+                    <Link to={{ pathname: `/department/${this.props.department.department_id}` }} className="site-btn">{this.props.department.name}</Link>
                 </div>
             </div>
         );

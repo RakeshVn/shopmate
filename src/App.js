@@ -17,6 +17,7 @@ import Signup from './views/signup.component';
 import Login from './views/login.component';
 import { ProtectedRoute } from './shared/protected.routes';
 import NotFound from './views/404.component';
+import Department from './views/department.component';
 
 
 class App extends Component {
@@ -31,10 +32,11 @@ class App extends Component {
             <Route path="/" exact component={Home} />
             <ProtectedRoute path="/cart" exact component={Cart} />
             <Route path="/checkout" exact component={Checkout} />
-            <Route path="/product" exact component={Product} />
+            <Route path="/product/:productId" exact component={Product} />
             <Route path="/categories" exact component={Categories} />
             <Route path="/signup" exact component={Signup} />
             <Route path="/login" exact component={Login} />
+            <Route path="/department/:deparmentId" exact component={Department} />
             <Route path="*" component={NotFound} />
           </Switch>
         </Router>

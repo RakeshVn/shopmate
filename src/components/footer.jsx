@@ -11,7 +11,6 @@ import cards2 from "../assets/img/cards/2.png"
 import cards3 from "../assets/img/cards/3.png"
 import cards4 from "../assets/img/cards/4.png"
 import cards5 from "../assets/img/cards/5.png"
-import logo from "../assets/img/logo.png"
 
 export default class Footer extends Component {
     render() {
@@ -21,7 +20,7 @@ export default class Footer extends Component {
                     <div className="row">
                         <div className="col-lg-3 col-md-8 col-sm-12">
                             <div className="footer-widget about-widget">
-                                <img src={logo} className="footer-logo" alt="" />
+                                <h5 style={{ color: "#ffffff" }}>SHOPMATE</h5>
                                 <p>Donec vitae purus nunc. Morbi faucibus erat sit amet congue mattis. Nullam fringilla faucibus urna, id
 							dapibus erat iaculis ut. Integer ac sem.</p>
                                 <div className="cards">

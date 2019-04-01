@@ -50,7 +50,6 @@ export default class Home extends Component {
           <div className="container">
             <div className="row">
               {this.state.departmentsData.map(function (item, key) {
-                console.log(item)
                 return <Categories department={item} key={key}></Categories>
               })}
             </div>

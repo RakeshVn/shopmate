@@ -1,213 +1,243 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
+import { get } from '../shared/restful.service';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
 import product2 from "../assets/img/products/2.jpg"
 import product3 from "../assets/img/products/3.jpg"
 import product4 from "../assets/img/products/4.jpg"
-import products1 from "../assets/img/product/1.jpg";
-import products2 from "../assets/img/product/2.jpg";
-import products3 from "../assets/img/product/3.jpg";
-import products4 from "../assets/img/product/4.jpg";
 import eye from "../assets/img/icons/eye.png"
 import heart from "../assets/img/icons/heart.png"
 
 export default class Product extends Component {
+
+    rating = <i className="fa fa-star"></i>
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            productsData: {},
+            productReview: {},
+            rating: 0
+        }
+    }
+
+    componentDidMount() {
+        let productId = this.props.match.params.productId
+        get(`https://backendapi.turing.com/products/${productId}`).then(response => {
+            return response.json()
+        }).then(result => {
+            this.setState({
+                productsData: result
+            })
+        }).catch(error => {
+            console.error('Internal server error', error)
+        })
+        get(`https://backendapi.turing.com/products/${productId}/reviews`).then(response => {
+            return response.json()
+        }).then(result => {
+            this.setState({
+                rating: Math.floor(result.reduce((sum, i) => sum + i.rating, 0) / result.length)
+            })
+            this.setState({
+                productReview: result
+            })
+        }).catch(error => {
+            console.error('Internal server error', error)
+        })
+
+    }
+
     render() {
         return (
             <div>
                 <Navbar></Navbar>
-                <div class="page-area product-page spad">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-6">
+                <div className="page-area product-page spad">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-6">
                                 <figure>
-                                    <img class="product-big-img" src={products1} alt="" />
+                                    <img className="product-big-img" src={`https://backendapi.turing.com/images/products/${this.state.productsData.image}`} alt="" />
                                 </figure>
-                                <div class="product-thumbs">
-                                    <div class="product-thumbs-track">
-                                        <div class="pt" data-imgbigurl="img/product/1.jpg"><img src={products1} alt="" /></div>
-                                        <div class="pt" data-imgbigurl="img/product/2.jpg"><img src={products2} alt="" /></div>
-                                        <div class="pt" data-imgbigurl="img/product/3.jpg"><img src={products3} alt="" /></div>
-                                        <div class="pt" data-imgbigurl="img/product/4.jpg"><img src={products4} alt="" /></div>
+                                <div className="product-thumbs">
+                                    <div className="product-thumbs-track">
+                                        <div className="pt">
+                                            <img src={`https://backendapi.turing.com/images/products/${this.state.productsData.image2}`} alt="" />
+                                        </div>
+                                        <div className="pt">
+                                            <img src={`https://backendapi.turing.com/images/products/${this.state.productsData.thumbnail}`} alt="" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="product-content">
-                                    <h2>Black Shoulder bag</h2>
-                                    <div class="pc-meta">
-                                        <h4 class="price">$19.50</h4>
-                                        <div class="review">
-                                            <div class="rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star is-fade"></i>
+                            <div className="col-lg-6">
+                                <div className="product-content">
+                                    <h2>{this.state.productsData.name}</h2>
+                                    <div className="pc-meta">
+                                        <h4 className="price"><span style={{ fontSize: 20, textDecoration: "line-through", paddingRight: 10, color: "#969696" }}>${this.state.productsData.price}</span>${this.state.productsData.discounted_price}</h4>
+                                        <div className="review">
+                                            <div className="rating">
+                                                <i className="fa fa-star"></i>
+                                                <i className="fa fa-star"></i>
+                                                <i className="fa fa-star"></i>
+                                                <i className="fa fa-star"></i>
+                                                <i className="fa fa-star is-fade"></i>
                                             </div>
-                                            <span>(2 reviews)</span>
+                                            <span>({this.state.productReview.length} reviews)</span>
                                         </div>
                                     </div>
-                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolore- mque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
-                                    <div class="color-choose">
+                                    <p>{this.state.productsData.description}</p>
+                                    <div className="color-choose">
                                         <span>Colors:</span>
-                                        <div class="cs-item">
-                                            <input type="radio" name="cs" id="black-color" checked />
-                                            <label class="cs-black" for="black-color"></label>
+                                        <div className="cs-item">
+                                            <input type="radio" name="cs" id="black-color" />
+                                            <label className="cs-black"></label>
                                         </div>
-                                        <div class="cs-item">
+                                        <div className="cs-item">
                                             <input type="radio" name="cs" id="blue-color" />
-                                            <label class="cs-blue" for="blue-color"></label>
+                                            <label className="cs-blue"></label>
                                         </div>
-                                        <div class="cs-item">
+                                        <div className="cs-item">
                                             <input type="radio" name="cs" id="yollow-color" />
-                                            <label class="cs-yollow" for="yollow-color"></label>
+                                            <label className="cs-yollow"></label>
                                         </div>
-                                        <div class="cs-item">
+                                        <div className="cs-item">
                                             <input type="radio" name="cs" id="orange-color" />
-                                            <label class="cs-orange" for="orange-color"></label>
+                                            <label className="cs-orange"></label>
                                         </div>
                                     </div>
-                                    <div class="size-choose">
+                                    <div className="size-choose">
                                         <span>Size:</span>
-                                        <div class="sc-item">
-                                            <input type="radio" name="sc" id="l-size" checked />
-                                            <label for="l-size">L</label>
+                                        <div className="sc-item">
+                                            <input type="radio" name="sc" id="l-size" />
+                                            <label>L</label>
                                         </div>
-                                        <div class="sc-item">
+                                        <div className="sc-item">
                                             <input type="radio" name="sc" id="xl-size" />
-                                            <label for="xl-size">XL</label>
+                                            <label>XL</label>
                                         </div>
-                                        <div class="sc-item">
+                                        <div className="sc-item">
                                             <input type="radio" name="sc" id="xxl-size" />
-                                            <label for="xxl-size">XXL</label>
+                                            <label>XXL</label>
                                         </div>
                                     </div>
-                                    <Link to="#" class="site-btn btn-line">ADD TO CART</Link>
+                                    <Link to="#" className="site-btn btn-line">ADD TO CART</Link>
                                 </div>
                             </div>
                         </div>
-                        <div class="product-details">
-                            <div class="row">
-                                <div class="col-lg-10 offset-lg-1">
-                                    <ul class="nav" role="tablist">
-                                        <li class="nav-item">
-                                            <Link class="nav-link active" id="1-tab" data-toggle="tab" to="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true">Description</Link>
-                                        </li>
-                                        <li class="nav-item">
-                                            <Link class="nav-link" id="2-tab" data-toggle="tab" to="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false">Additional information</Link>
-                                        </li>
-                                        <li class="nav-item">
-                                            <Link class="nav-link" id="3-tab" data-toggle="tab" to="#tab-3" role="tab" aria-controls="tab-3" aria-selected="false">Reviews (0)</Link>
+                        <div className="product-details">
+                            <div className="row">
+                                <div className="col-lg-10 offset-lg-1">
+                                    <ul className="nav" role="tablist">
+                                        <li className="nav-item">
+                                            <Link className="nav-link active" id="1-tab" data-toggle="tab" to="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true">Reviews({this.state.productReview.length})</Link>
                                         </li>
                                     </ul>
-                                    <div class="tab-content">
-                                        <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
+                                    <div className="tab-content">
+                                        <div className="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
                                             <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
                                         </div>
-                                        <div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="tab-2">
+                                        <div className="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="tab-2">
                                             <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
                                         </div>
-                                        <div class="tab-pane fade" id="tab-3" role="tabpanel" aria-labelledby="tab-3">
+                                        <div className="tab-pane fade" id="tab-3" role="tabpanel" aria-labelledby="tab-3">
 
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="text-center rp-title">
+                        <div className="text-center rp-title">
                             <h5>Related products</h5>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <div class="product-item">
+                        <div className="row">
+                            <div className="col-lg-3">
+                                <div className="product-item">
                                     <figure>
                                         <img src={product2} alt="" />
-                                        <div class="pi-meta">
-                                            <div class="pi-m-left">
+                                        <div className="pi-meta">
+                                            <div className="pi-m-left">
                                                 <img src={eye} alt="" />
                                                 <p>quick view</p>
                                             </div>
-                                            <div class="pi-m-right">
+                                            <div className="pi-m-right">
                                                 <img src={heart} alt="" />
                                                 <p>save</p>
                                             </div>
                                         </div>
                                     </figure>
-                                    <div class="product-info">
+                                    <div className="product-info">
                                         <h6>Long red Shirt</h6>
                                         <p>$39.90</p>
-                                        <Link to="#" class="site-btn btn-line">ADD TO CART</Link>
+                                        <Link to="#" className="site-btn btn-line">ADD TO CART</Link>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3">
-                                <div class="product-item">
+                            <div className="col-lg-3">
+                                <div className="product-item">
                                     <figure>
                                         <img src={product2} alt="" />
-                                        <div class="bache">NEW</div>
-                                        <div class="pi-meta">
-                                            <div class="pi-m-left">
+                                        <div className="bache">NEW</div>
+                                        <div className="pi-meta">
+                                            <div className="pi-m-left">
                                                 <img src={eye} alt="" />
                                                 <p>quick view</p>
                                             </div>
-                                            <div class="pi-m-right">
+                                            <div className="pi-m-right">
                                                 <img src={heart} alt="" />
                                                 <p>save</p>
                                             </div>
                                         </div>
                                     </figure>
-                                    <div class="product-info">
+                                    <div className="product-info">
                                         <h6>Hype grey shirt</h6>
                                         <p>$19.50</p>
-                                        <Link to="#" class="site-btn btn-line">ADD TO CART</Link>
+                                        <Link to="#" className="site-btn btn-line">ADD TO CART</Link>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3">
-                                <div class="product-item">
+                            <div className="col-lg-3">
+                                <div className="product-item">
                                     <figure>
                                         <img src={product3} alt="" />
-                                        <div class="pi-meta">
-                                            <div class="pi-m-left">
+                                        <div className="pi-meta">
+                                            <div className="pi-m-left">
                                                 <img src={eye} alt="" />
                                                 <p>quick view</p>
                                             </div>
-                                            <div class="pi-m-right">
+                                            <div className="pi-m-right">
                                                 <img src={heart} alt="" />
                                                 <p>save</p>
                                             </div>
                                         </div>
                                     </figure>
-                                    <div class="product-info">
+                                    <div className="product-info">
                                         <h6>long sleeve jacket</h6>
                                         <p>$59.90</p>
-                                        <Link to="#" class="site-btn btn-line">ADD TO CART</Link>
+                                        <Link to="#" className="site-btn btn-line">ADD TO CART</Link>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3">
-                                <div class="product-item">
+                            <div className="col-lg-3">
+                                <div className="product-item">
                                     <figure>
                                         <img src={product4} alt="" />
-                                        <div class="bache sale">SALE</div>
-                                        <div class="pi-meta">
-                                            <div class="pi-m-left">
+                                        <div className="bache sale">SALE</div>
+                                        <div className="pi-meta">
+                                            <div className="pi-m-left">
                                                 <img src={eye} alt="" />
                                                 <p>quick view</p>
                                             </div>
-                                            <div class="pi-m-right">
+                                            <div className="pi-m-right">
                                                 <img src={heart} alt="" />
                                                 <p>save</p>
                                             </div>
                                         </div>
                                     </figure>
-                                    <div class="product-info">
+                                    <div className="product-info">
                                         <h6>Denim men shirt</h6>
                                         <p>$32.20 <span>RRP 64.40</span></p>
-                                        <Link to="#" class="site-btn btn-line">ADD TO CART</Link>
+                                        <Link to="#" className="site-btn btn-line">ADD TO CART</Link>
                                     </div>
                                 </div>
                             </div>
