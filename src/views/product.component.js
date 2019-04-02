@@ -8,6 +8,7 @@ import product3 from "../assets/img/products/3.jpg"
 import product4 from "../assets/img/products/4.jpg"
 import eye from "../assets/img/icons/eye.png"
 import heart from "../assets/img/icons/heart.png"
+import AddToCart from '../components/addToCart';
 
 export default class Product extends Component {
 
@@ -62,7 +63,7 @@ export default class Product extends Component {
                                 <div className="product-thumbs">
                                     <div className="product-thumbs-track">
                                         <div className="pt">
-                                            <img src={`https://backendapi.turing.com/images/products/${this.state.productsData.image2}`} alt="" />
+                                            <img src={`https://backendapi.turing.com/images/products/${this.state.productsData.image_2}`} alt="" />
                                         </div>
                                         <div className="pt">
                                             <img src={`https://backendapi.turing.com/images/products/${this.state.productsData.thumbnail}`} alt="" />
@@ -121,7 +122,7 @@ export default class Product extends Component {
                                             <label>XXL</label>
                                         </div>
                                     </div>
-                                    <Link to="#" className="site-btn btn-line">ADD TO CART</Link>
+                                    <AddToCart product={{ product_id: this.state.productsData.product_id }}></AddToCart>
                                 </div>
                             </div>
                         </div>
