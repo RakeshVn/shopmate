@@ -9,6 +9,7 @@ import product4 from "../assets/img/products/4.jpg"
 import eye from "../assets/img/icons/eye.png"
 import heart from "../assets/img/icons/heart.png"
 import AddToCart from '../components/addToCart';
+import AttributesColors from '../components/attributesColors';
 
 export default class Product extends Component {
 
@@ -19,6 +20,7 @@ export default class Product extends Component {
         this.state = {
             productsData: {},
             productReview: {},
+            productAttributes: [],
             rating: 0
         }
     }
@@ -46,7 +48,15 @@ export default class Product extends Component {
         }).catch(error => {
             console.error('Internal server error', error)
         })
-
+        get(`https://backendapi.turing.com/attributes/inProduct/${productId}`).then(response => {
+            return response.json()
+        }).then(result => {
+            this.setState({
+                productAttributes: result
+            })
+        }).catch(error => {
+            console.error('Internal server error', error)
+        })
     }
 
     render() {
@@ -90,6 +100,9 @@ export default class Product extends Component {
                                     <p>{this.state.productsData.description}</p>
                                     <div className="color-choose">
                                         <span>Colors:</span>
+                                        {this.state.productAttributes.map(function (item, key) {
+                                            return <AttributesColors color={item} key={key}></AttributesColors>
+                                        })}
                                         <div className="cs-item">
                                             <input type="radio" name="cs" id="black-color" />
                                             <label className="cs-black"></label>
