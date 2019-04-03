@@ -1180,6 +1180,55 @@ ol {
 	border: 1px solid #e2613f;
 }
 
+.product-content .color-choose label.cs-yellow {
+	background: #ffd800;
+}
+
+.product-content .color-choose label.cs-yellow:after {
+	border: 1px solid #ffd800;
+}
+
+.product-content .color-choose label.cs-green {
+	background: #00ff21;
+}
+
+.product-content .color-choose label.cs-green:after {
+	border: 1px solid #00ff21;
+}
+
+.product-content .color-choose label.cs-indigo {
+	background: rgb(68, 12, 124);
+}
+
+.product-content .color-choose label.cs-indigo:after {
+	border: 1px solid rgb(68, 12, 124);
+}
+
+.product-content .color-choose label.cs-purple {
+	background: #9B30FF;
+}
+
+.product-content .color-choose label.cs-purple:after {
+	border: 1px solid #9B30FF;
+}
+.product-content .color-choose label.cs-red {
+	background: #ff0000;
+}
+
+.product-content .color-choose label.cs-red:after {
+	border: 1px solid #ff0000;
+}
+
+.product-content .color-choose label.cs-white {
+	background: #d6d6d6;
+}
+
+.product-content .color-choose label.cs-white:after {
+	border: 1px solid #d6d6d6;
+}
+
+
+
 .product-content .color-choose input[type=radio] {
 	visibility: hidden;
 	position: absolute;

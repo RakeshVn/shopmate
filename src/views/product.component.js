@@ -10,6 +10,7 @@ import eye from "../assets/img/icons/eye.png"
 import heart from "../assets/img/icons/heart.png"
 import AddToCart from '../components/addToCart';
 import AttributesColors from '../components/attributesColors';
+import AttributesSizes from '../components/attributesSizes';
 
 export default class Product extends Component {
 
@@ -101,39 +102,18 @@ export default class Product extends Component {
                                     <div className="color-choose">
                                         <span>Colors:</span>
                                         {this.state.productAttributes.map(function (item, key) {
-                                            return <AttributesColors color={item} key={key}></AttributesColors>
+                                            if (item.attribute_name === "Color")
+                                                return <AttributesColors color={item} key={key}></AttributesColors>
+                                            return null
                                         })}
-                                        <div className="cs-item">
-                                            <input type="radio" name="cs" id="black-color" />
-                                            <label className="cs-black"></label>
-                                        </div>
-                                        <div className="cs-item">
-                                            <input type="radio" name="cs" id="blue-color" />
-                                            <label className="cs-blue"></label>
-                                        </div>
-                                        <div className="cs-item">
-                                            <input type="radio" name="cs" id="yollow-color" />
-                                            <label className="cs-yollow"></label>
-                                        </div>
-                                        <div className="cs-item">
-                                            <input type="radio" name="cs" id="orange-color" />
-                                            <label className="cs-orange"></label>
-                                        </div>
                                     </div>
                                     <div className="size-choose">
                                         <span>Size:</span>
-                                        <div className="sc-item">
-                                            <input type="radio" name="sc" id="l-size" />
-                                            <label>L</label>
-                                        </div>
-                                        <div className="sc-item">
-                                            <input type="radio" name="sc" id="xl-size" />
-                                            <label>XL</label>
-                                        </div>
-                                        <div className="sc-item">
-                                            <input type="radio" name="sc" id="xxl-size" />
-                                            <label>XXL</label>
-                                        </div>
+                                        {this.state.productAttributes.map(function (item, key) {
+                                            if (item.attribute_name === "Size")
+                                                return <AttributesSizes size={item} key={key}></AttributesSizes>
+                                            return null
+                                        })}
                                     </div>
                                     <AddToCart product={{ product_id: this.state.productsData.product_id }}></AddToCart>
                                 </div>
@@ -155,7 +135,6 @@ export default class Product extends Component {
                                             <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
                                         </div>
                                         <div className="tab-pane fade" id="tab-3" role="tabpanel" aria-labelledby="tab-3">
-
                                         </div>
                                     </div>
                                 </div>

@@ -10,9 +10,8 @@ export default class AttributesColors extends Component {
     render() {
         return (
             <div className="cs-item">
-                <p>{this.props.color.color}</p>
-                <input type="radio" name="cs" id="black-color" />
-                <label className="cs-black"></label>
+                <input type="radio" name="cs" />
+                <label className={`cs-${this.props.color.attribute_value.toLowerCase()}`}></label>
             </div>
         );
     }
