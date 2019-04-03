@@ -1230,8 +1230,8 @@ ol {
 
 
 .product-content .color-choose input[type=radio] {
-	visibility: hidden;
-	position: absolute;
+	/* visibility: hidden; */
+	/* position: absolute; */
 }
 
 .product-content .color-choose input[type=radio]:checked+label:after {
